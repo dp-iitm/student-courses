@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student_list</title>
+</head>
+<body>
+    <h1>Student list</h1>
+    <a href="/courses" style="float:right"><h1>Go to Courses</h1></a>
+    <table id = "all-students">
+    <tr>
+        <th>SNo</th>
+        <th>Roll Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+    </tr>
+        {% for student in students %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td><a href="/student/{{ student.student_id}}">{{ student.roll_number }}</a></td>
+        <td>{{ student.first_name }}</td>
+        <td>{{ student.last_name }}</td>
+        <td>
+        <a href="/student/{{ student.student_id }}/update">Update</a>
+        <a href="/student/{{ student.student_id }}/delete">Delete</a>
+        </td>
+    </tr>
+        {% endfor %}
+</table>
+<a href="/student/create">+Add Student</a>
+</body>
+</html>
